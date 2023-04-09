@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CareersController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return view('layouts/template'); })->name('home');
+
+Route::resource('careers', CareersController::class)->names('careers');
+Route::resource('students', StudentsController::class)->names('students');
