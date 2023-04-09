@@ -43,8 +43,10 @@ class CareersController extends Controller
         return redirect()->route('careers.index');
     }
 
-    public function destroy($id)
+    public function destroy(Career $career)
     {
-        //
+        $career->delete();
+
+        return redirect()->back();
     }
 }
