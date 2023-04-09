@@ -9,7 +9,7 @@
                 <div class="card-header bg-dark text-white text-center fw-bold">Editar carrera: {{ $career->name }}</div>
     
                 <div class="card-body">
-                    <form action="{{ route('careers.update', $career) }}" id="frmCareers" method="POST">
+                    <form action="{{ route('careers.update', $career) }}" method="POST">
                         @method('PUT')
                         @csrf
     
