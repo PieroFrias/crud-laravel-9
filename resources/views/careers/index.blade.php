@@ -4,7 +4,7 @@
 
 @section('content')
     {{-- Botón de Añadir     --}}
-    <div class="row mt-3">
+    <div class="row mt-4">
         <div class="col-md-4 offset-md-4">
             <div class="d-grid mx-auto">
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCareers">
@@ -15,16 +15,18 @@
     </div>
 
     {{-- Tabla de Carreras añadidas --}}
-    <div class="row mt-3">
+    <div class="row mt-4">
         <div class="col-12 col-lg-8 offset-0 offset-lg-2">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead align="center"><tr><th>#</th> <th>Carrera</th> <th>Editar</th> <th>Eliminar</th></tr></thead>
 
                     <tbody class="table-group-divider">
+                        @php $num = 1; @endphp
+
                         @foreach ($careers as $career)
                             <tr align="center">
-                                <td>{{ $career->id }}</td>
+                                <td>{{ $num++ }}</td>
                                 <td>{{ $career->name }}</td>
                                 <td><a href="{{ route('careers.edit', $career) }}" class="btn btn-warning"><i class="fa-solid fa-edit"></i></a></td>
                                 <td>

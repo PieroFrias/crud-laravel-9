@@ -22,6 +22,7 @@ class CareersController extends Controller
     public function store(Request $request)
     {
         Career::create($request->all());
+
         return redirect()->route('careers.index');
     }
 
@@ -30,14 +31,16 @@ class CareersController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Career $career)
     {
-        //
+        return view('careers.edit', compact('career'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Career $career)
     {
-        //
+        $career->update($request->all());
+        
+        return redirect()->route('careers.index');
     }
 
     public function destroy($id)
