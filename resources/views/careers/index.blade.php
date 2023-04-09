@@ -8,7 +8,7 @@
         <div class="col-md-4 offset-md-4">
             <div class="d-grid mx-auto">
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCareers">
-                    <i class="fa-solid fa-circle-plus mr-4"></i> Añadir
+                    <i class="fa-solid fa-circle-plus"></i> Añadir
                 </button>
             </div>
         </div>
