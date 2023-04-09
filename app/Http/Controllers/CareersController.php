@@ -21,7 +21,8 @@ class CareersController extends Controller
 
     public function store(Request $request)
     {
-        //
+        Career::create($request->all());
+        return redirect()->route('careers.index');
     }
 
     public function show($id)

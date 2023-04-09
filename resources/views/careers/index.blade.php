@@ -23,12 +23,12 @@
 
                     <tbody class="table-group-divider">
                         @foreach ($careers as $career)
-                            <tr>
+                            <tr align="center">
                                 <td>{{ $career->id }}</td>
                                 <td>{{ $career->name }}</td>
-                                <td><a href="{{ route('carrers.edit', $career) }}" class="btn btn-warning"></a><i class="fa-solid fa-edit"></i></td>
+                                <td><a href="{{ route('careers.edit', $career) }}" class="btn btn-warning"><i class="fa-solid fa-edit"></i></a></td>
                                 <td>
-                                    <form action="{{ route('careers.delete', $career) }}" method="POST">
+                                    <form action="{{ route('careers.destroy', $career) }}" method="POST">
                                         @method("DELETE")
                                         @csrf
 
@@ -52,23 +52,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
 
-                <div class="modal-body">
-
-                   <form action="{{ route('careers.index') }}" id="frmCareers" method="POST">
+                <form action="{{ route('careers.store') }}" id="frmCareers" method="POST">
+                    <div class="modal-body">                    
                         @csrf
 
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
                             <input type="text" name="name" class="form-control" placeholder="Nombre de la carrera" value="{{ old('name') }}" required>
                         </div>
-                   </form>
-                </div>
-                
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar cambios</button>
+                    </div>
 
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
