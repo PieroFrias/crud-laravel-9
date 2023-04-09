@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use App\Models\Career;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
     public function index()
     {
-        
+        $students = Student::all();
+        $careers = Career::all();
+
+        return view('students.index', compact('students', 'careers'));
     }
 
     public function create()
@@ -18,7 +23,9 @@ class StudentsController extends Controller
 
     public function store(Request $request)
     {
-        //
+        Student::create($request->all());
+
+        return redirect()->route('students.index');
     }
 
     public function show($id)
@@ -26,18 +33,24 @@ class StudentsController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        $careers = Career::all();
+
+        return view('students.edit', compact('student', 'careers'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $student->update($request->all());
+        
+        return redirect()->route('students.index');
     }
 
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        //
+        $student->delete();
+
+        return redirect()->back();
     }
 }
